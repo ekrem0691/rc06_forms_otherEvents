@@ -17,6 +17,8 @@ const MouseEvent = () => {
       : (e.target.className = 'bg-success text-light w-50 p-4 mt-4');
   };
 
+  //! 
+
   //? mouseMove event
   const handleMouseMove = (e) => {
     //! Goreceli koordinatlar
