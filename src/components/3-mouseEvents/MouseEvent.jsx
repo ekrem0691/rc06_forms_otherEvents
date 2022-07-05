@@ -6,7 +6,33 @@ import { FaEvernote } from 'react-icons/fa';
 const MouseEvent = () => {
   
 
-  const [visible, setVisible] = useState(false)
+  const [visible, setVisible] = useState(false);
+  const [toggleBg, setToggleBg] = useState(false);
+
+  
+  const [coordX, setCoordX] = useState();
+  const [coordY, setCoordY] = useState();
+
+
+
+
+  const handleDoubleClick = (e)=>{
+    setToggleBg(true);
+    toggleBg ? (e.target.className = 'bg-danger text-light w-50 p-4 mt-4') : (e.target.className = 'bg-success text-light w-50 p-4 mt-4')
+  }
+
+
+   //? mouseMove event
+   const handleMouseMove = (e) => {
+    //! Goreceli koordinatlar
+    // setCoordX(e.nativeEvent.offsetX);
+    // setCoordY(e.nativeEvent.offsetY);
+
+    //! Sayfaya göre koordinatlar
+    setCoordX(e.pageX);
+    setCoordY(e.pageY);
+  };
+
  
     
 
@@ -28,6 +54,8 @@ const MouseEvent = () => {
       <div
         id="todo-2"
         className="bg-success text-light w-50 p-4 mt-4"
+        onDoubleClick = {handleDoubleClick}
+  
       
       >
         todo item 2 <FaEvernote />
@@ -36,6 +64,7 @@ const MouseEvent = () => {
       <div
         id="todo-3"
         className="bg-success text-light w-50 p-4 my-4"
+        onMouseMove={handleMouseMove}
         
       >
         todo item 3 <FaReact />
@@ -43,6 +72,8 @@ const MouseEvent = () => {
 
       <p>X and Y</p>
       <p className="text-danger fw-bold">
+
+      {coordX} {coordY}
      
       </p>
     </div>
