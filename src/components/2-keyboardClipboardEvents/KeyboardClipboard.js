@@ -40,8 +40,8 @@ const KeyboardClipboard = () => {
     <div className="container text-center">
       <h2>CLIPBOARD EVENTS</h2>
       <input type="text" name="" value={inputValue} onKeyDown={handleKeyDown} onChange={handleInputChange} />
-      <p className="text-start m-5" onCopy={ ()=> alert('Dikkat kopyalandı') } >{inputValue}</p>
-      <textarea name="area" id="area" rows="10" cols="50" onPaste={handleAreaPaste} onChange = {handleAreaChange}  ></textarea>
+      <p className="text-start m-5" onCopy={() => alert('Dikkat kopyalandı')} >{inputValue}</p>
+      <textarea name="area" id="area" rows="10" cols="50" onPaste={handleAreaPaste} onChange={handleAreaChange}  ></textarea>
     </div>
   )
 }
