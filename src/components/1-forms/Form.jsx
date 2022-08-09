@@ -5,40 +5,33 @@ const Form = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-
-  
-
-
   const handleUsername = (e) => {
     console.log(e.target.value);
     setUsername(e.target.value);
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    alert(`username:${username}
+    email:${email}
+    password:${password}`);
 
 
-  function handleSubmit(e) {
-    // e.preventDefault();
-    alert(`username:${username},
-    email:${email},
-    password:${password}
-    `);
-    // setUsername('');
-    // setEmail('');
-    // setPassword('');
-
-  
-
-  }
+    setUsername("");
+    setEmail("");
+    setPassword("");
 
 
 
+
+  };
 
   return (
     <div>
-      <form style={{ margin: "5rem" }} onSubmit={handleSubmit} >
+      <form style={{ margin: "5rem" }} onSubmit={handleSubmit}>
         <div className="mb-3">
           <label htmlFor="username" className="form-label">
-            Username <span className="text-danger">:{username}</span>
+            Username: <span className="text-danger">{username} </span>
           </label>
           <input
             type="text"
@@ -50,7 +43,7 @@ const Form = () => {
         </div>
         <div className="mb-3">
           <label htmlFor="email" className="form-label">
-            Email address <span className="text-danger">:{email}</span>
+            Email address <span className="text-danger"> {email} </span>
           </label>
           <input
             type="email"
@@ -62,7 +55,7 @@ const Form = () => {
         </div>
         <div className="mb-3">
           <label htmlFor="password" className="form-label">
-            Password
+            Password :
           </label>
           <input
             type="password"
@@ -72,7 +65,6 @@ const Form = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-
         <button type="submit" className="btn btn-primary">
           Submit
         </button>
