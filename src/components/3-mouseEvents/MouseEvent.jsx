@@ -10,7 +10,7 @@ const MouseEvent = () => {
   const [coordY, setCoordY] = useState();
 
   const handleDoubleClick = (e) => {
-    setToggleBg(true);
+    setToggleBg(!toggleBg);
     toggleBg
       ? (e.target.className = "bg-danger text-light w-50 p-4 mt-4")
       : (e.target.className = "bg-success text-light w-50 p-4 mt-4");
