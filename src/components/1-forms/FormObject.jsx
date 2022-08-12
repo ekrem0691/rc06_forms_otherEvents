@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 
 const FormObject = () => {
@@ -10,23 +9,40 @@ const FormObject = () => {
 
 
 
-  const handleFormValues = (e) => {
+
+  const handleFormValues = (e)=>{
+
+    //*objelerde keylere erişim  []: içinde yapıyoruz...
+    setFormValues({...formValues, [e.target.id]: e.target.value });
 
 
-    setFormValues({...formValues, [e.target.id]: e.target.value })
+    console.log(e.target.id)
+    console.log(e.target.value);
+    console.log(e.target.name)
+
+
   }
 
 
-  
+
 
   const handleSubmit = (e) => {
+
+    const {username, email, password} = formValues;
+
     // e.preventDefault();
-    // const {username, email, password} = formValues;
-    alert(`username:${formValues.username}
-    email:${formValues.email}
-    password:${formValues.password}
-    `);
-    
+    alert(`username:${username}
+    email:${email}
+    password:${password}`);
+
+
+    // setUsername("");
+    // setEmail("");
+    // setPassword("");
+
+
+
+
   };
 
   return (
@@ -34,31 +50,32 @@ const FormObject = () => {
       <form style={{ margin: "5rem" }} onSubmit={handleSubmit}>
         <div className="mb-3">
           <label htmlFor="username" className="form-label">
-            Username <span className="text-danger">:{formValues.username}</span>
+            Username: <span className="text-danger">{formValues.username} </span>
           </label>
           <input
             type="text"
             className="form-control"
             id="username"
+            name = "username"
             value={formValues.username}
             onChange={handleFormValues}
           />
         </div>
         <div className="mb-3">
           <label htmlFor="email" className="form-label">
-            Email address <span className="text-danger">:{formValues.email}</span>
+            Email address <span className="text-danger"> {formValues.email} </span>
           </label>
           <input
             type="email"
             className="form-control"
-            id="email"
+            id="email"   
             value={formValues.email}
             onChange={handleFormValues}
           />
         </div>
         <div className="mb-3">
           <label htmlFor="password" className="form-label">
-            Password
+            Password :
           </label>
           <input
             type="password"
@@ -68,8 +85,7 @@ const FormObject = () => {
             onChange={handleFormValues}
           />
         </div>
-
-        <button type="submit" className="btn btn-primary" onClick={handleSubmit}>
+        <button type="submit" className="btn btn-primary">
           Submit
         </button>
       </form>
